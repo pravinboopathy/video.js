@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Video.js Sandbox</title>
+
+  <link href="../dist/video-js.css" rel="stylesheet" type="text/css">
+  <link href="../node_modules/videojs-playlist-ui/dist/videojs-playlist-ui.vertical.css" rel="stylesheet">
+  
+  
+  <!-- <style>
+    html,body,.player-container{
+      height:100%;
+    }
+    .player-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style> -->
+</head>
+<body>
+  <div style="background-color:#eee; border: 1px solid #777; padding: 10px; margin-bottom: 20px; font-size: .8em; line-height: 1.5em; font-family: Verdana, sans-serif;">
+    <p>You can use /sandbox/ for writing and testing your own code. Nothing in /sandbox/ will get checked into the repo, except files that end in .example (so don't edit or add those files). To get started run `npm start` and open the index.html</p>
+    <pre>npm start</pre>
+    <pre>open http://localhost:9999/sandbox/playlist.html</pre>
+  </div>
+  
+  <div class="player-container">
+    <video-js
+      id="vid1"
+      controls
+      preload="auto"
+      width="640"
+      height="264"
+    >
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video-js>
+
+    <div class="vjs-playlist"></div>
+  </div>
+  
+  <script src="../dist/video.js"></script>
+  <script src="../node_modules/videojs-playlist/dist/videojs-playlist.js"></script>
+  <script src="../node_modules/videojs-playlist-ui/dist/videojs-playlist-ui.js"></script>
+  
+  <script>
+    var vid = document.getElementById('vid1');
+    var player = videojs(vid);
+
+    player.playlist([{
+      sources: [{
+        src: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'http://media.w3.org/2010/05/sintel/poster.png'
+    }, {
+      sources: [{
+        src: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'http://media.w3.org/2010/05/bunny/poster.png'
+    }, {
+      sources: [{
+        src: 'http://vjs.zencdn.net/v/oceans.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'http://www.videojs.com/img/poster.jpg'
+    }, {
+      sources: [{
+        src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'http://media.w3.org/2010/05/bunny/poster.png'
+    }, {
+      sources: [{
+        src: 'http://media.w3.org/2010/05/video/movie_300.mp4',
+        type: 'video/mp4'
+      }],
+      poster: 'http://media.w3.org/2010/05/video/poster.png'
+    }]);
+
+    // Play through the playlist automatically.
+
+    player.playlistUi();
+  </script>
+
+</body>
+</html>

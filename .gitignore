@@ -15,6 +15,7 @@ npm-debug.log*
 
 sandbox/*
 !sandbox/*.example
+!sandbox/playlist.html
 
 *.swp
 *.swo
@@ -35,6 +36,8 @@ es5/*
 
 core.js
 core.es.js
+
+
 
 # Ignore Chinese clones for now.
 lang/zh-Han*.json
